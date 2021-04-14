@@ -47,18 +47,21 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       base: {
         fontSize: '16px',
         color: '#FFFFFF',
+        iconColor: '#FFFFFF',
         // pseudo-selector, see docs
         "::placeholder" : {
-          color: '#87BBFD'
+          color: '#87BBFD',
         }
       },
       invalid: {
-        color: '#FFC7EE'
+        color: '#FFC7EE',
+        iconColor: '#FFC7EE',
       },
       // complete: {
 
       // },
-    }
+    },
+    hidePostalCode:true,
   }
 
   return (
