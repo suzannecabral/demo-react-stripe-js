@@ -7,6 +7,8 @@ import BillingDetailsFields from "./prebuilt/BillingDetailsFields";
 import SubmitButton from "./prebuilt/SubmitButton";
 import CheckoutError from "./prebuilt/CheckoutError";
 
+import { CardElement } from '@stripe/react-stripe-js';
+
 const CardElementContainer = styled.div`
   height: 40px;
   display: flex;
@@ -37,6 +39,28 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
     };
   };
 
+  // stripe.com/docs/js
+
+  // these styles will affect iframe
+  const cardElementOptions = {
+    style: {
+      base: {
+        fontSize: '16px',
+        color: '#FFFFFF',
+        // pseudo-selector, see docs
+        "::placeholder" : {
+          color: '#87BBFD'
+        }
+      },
+      invalid: {
+        color: '#FFC7EE'
+      },
+      // complete: {
+
+      // },
+    }
+  }
+
   return (
     <form onSubmit={handleFormSubmit}>
       <Row>
@@ -44,6 +68,12 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       </Row>
       <Row>
         <CardElementContainer></CardElementContainer>
+
+          {/* CardElement is an iframe */}
+          {/* CSS doesn't cascade down */}
+          <CardElement 
+            options={cardElementOptions}
+          />
       </Row>
       {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
       <Row>

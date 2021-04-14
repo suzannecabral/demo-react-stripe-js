@@ -22,3 +22,14 @@
 - font size: `16px`
 - placeholder text color: `#87bbfd`
 - invalid text color: `#FFC7EE`
+
+## Notes
+
+### Things I Googled:
+
+* React children prop
+    * passed automatically by parent element when component is rendered
+    * [See Docs](https://reactjs.org/docs/composition-vs-inheritance.html)
+
+* Emotion library styled
+    * works like styled components
